@@ -273,58 +273,70 @@ function App() {
           </motion.div>
 
           <motion.div 
-            className="services-grid"
+            className="industries-grid"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
           >
-            <motion.div variants={fadeUp} className="glass-card service-card">
-              <div className="service-icon" style={{ background: 'var(--accent-1)' }}>
-                <Smartphone size={24} />
+            <motion.div variants={fadeUp} className="industry-card">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology & Comms" className="industry-img" />
+              <div className="industry-overlay">
+                <h3>Technology & Comms</h3>
+                <ul className="use-case-list">
+                  <li><ChevronRight size={14} /> Predictive churn analytics & retention</li>
+                  <li><ChevronRight size={14} /> Multi-channel customer service automation</li>
+                  <li><ChevronRight size={14} /> Network load optimization via AI</li>
+                </ul>
               </div>
-              <h3>Technology & Comms</h3>
-              <ul className="use-case-list">
-                <li><ChevronRight size={14} /> Predictive churn analytics & retention</li>
-                <li><ChevronRight size={14} /> Multi-channel customer service automation</li>
-                <li><ChevronRight size={14} /> Network load optimization via AI</li>
-              </ul>
+              <div className="industry-title">
+                <h3>Technology & Comms</h3>
+              </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="glass-card service-card">
-              <div className="service-icon" style={{ background: 'var(--accent-2)' }}>
-                <ShoppingBag size={24} />
+            <motion.div variants={fadeUp} className="industry-card">
+              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop" alt="Retail & CPG" className="industry-img" />
+              <div className="industry-overlay">
+                <h3>Retail & CPG</h3>
+                <ul className="use-case-list">
+                  <li><ChevronRight size={14} /> Hyper-personalized shopping journeys</li>
+                  <li><ChevronRight size={14} /> AI-driven inventory demand forecasting</li>
+                  <li><ChevronRight size={14} /> Real-time price optimization models</li>
+                </ul>
               </div>
-              <h3>Retail & CPG</h3>
-              <ul className="use-case-list">
-                <li><ChevronRight size={14} /> Hyper-personalized shopping journeys</li>
-                <li><ChevronRight size={14} /> AI-driven inventory demand forecasting</li>
-                <li><ChevronRight size={14} /> Real-time price optimization models</li>
-              </ul>
+              <div className="industry-title">
+                <h3>Retail & CPG</h3>
+              </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="glass-card service-card">
-              <div className="service-icon" style={{ background: '#10b981' }}>
-                <DollarSign size={24} />
+            <motion.div variants={fadeUp} className="industry-card">
+              <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop" alt="Financial Services" className="industry-img" />
+              <div className="industry-overlay">
+                <h3>Financial Services</h3>
+                <ul className="use-case-list">
+                  <li><ChevronRight size={14} /> Real-time fraud detection & prevention</li>
+                  <li><ChevronRight size={14} /> AI agents for wealth management</li>
+                  <li><ChevronRight size={14} /> Automated regulatory compliance reporting</li>
+                </ul>
               </div>
-              <h3>Financial Services</h3>
-              <ul className="use-case-list">
-                <li><ChevronRight size={14} /> Real-time fraud detection & prevention</li>
-                <li><ChevronRight size={14} /> AI agents for wealth management</li>
-                <li><ChevronRight size={14} /> Automated regulatory compliance reporting</li>
-              </ul>
+              <div className="industry-title">
+                <h3>Financial Services</h3>
+              </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="glass-card service-card">
-              <div className="service-icon" style={{ background: '#f59e0b' }}>
-                <Factory size={24} />
+            <motion.div variants={fadeUp} className="industry-card">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Manufacturing & Energy" className="industry-img" />
+              <div className="industry-overlay">
+                <h3>Manufacturing & Energy</h3>
+                <ul className="use-case-list">
+                  <li><ChevronRight size={14} /> Predictive maintenance for legacy gear</li>
+                  <li><ChevronRight size={14} /> Smart supply chain routing & resilience</li>
+                  <li><ChevronRight size={14} /> Energy waste reduction through smart grids</li>
+                </ul>
               </div>
-              <h3>Manufacturing & Energy</h3>
-              <ul className="use-case-list">
-                <li><ChevronRight size={14} /> Predictive maintenance for legacy gear</li>
-                <li><ChevronRight size={14} /> Smart supply chain routing & resilience</li>
-                <li><ChevronRight size={14} /> Energy waste reduction through smart grids</li>
-              </ul>
+              <div className="industry-title">
+                <h3>Manufacturing & Energy</h3>
+              </div>
             </motion.div>
           </motion.div>
         </div>
