@@ -58,50 +58,42 @@ function App() {
     {
       title: "Enterprise Business Planning",
       description: "Integrate strategic, financial, operational, and technology planning to align your organization, optimize resources, and drive growth.",
-      icon: <BarChart2 size={24} />,
-      gradient: "linear-gradient(135deg, #00f2fe, #4facfe)"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Digital Transformation",
       description: "Modernize operations, boost efficiency, and enhance customer experiences. Streamline workflows and accelerate growth.",
-      icon: <Zap size={24} />,
-      gradient: "linear-gradient(135deg, #f093fb, #f5576c)"
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "AI Center of Excellence",
       description: "Transform AI from scattered initiatives into a unified, enterprise-wide capability enabling consistent innovation and responsible deployment.",
-      icon: <Cpu size={24} />,
-      gradient: "linear-gradient(135deg, #43e97b, #38f9d7)"
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Revenue & Sales",
       description: "Intelligent revenue strategies built to outperform. Align with your goals, integrate seamlessly and boost CRM performance.",
-      icon: <Target size={24} />,
-      gradient: "linear-gradient(135deg, #fa709a, #fee140)"
+      image: "https://images.unsplash.com/photo-1553729459-efe14ef20550?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Data Engineering & Analytics",
       description: "Fuel intelligent decisions and business agility. We turn disconnected data into a strategic advantage for AI at scale.",
-      icon: <Database size={24} />,
-      gradient: "linear-gradient(135deg, #30cfd0, #330867)"
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "AI First Lab",
       description: "A collaborative hub to accelerate the development of cutting-edge AI solutions. Test and refine the latest technologies.",
-      icon: <LayoutDashboard size={24} />,
-      gradient: "linear-gradient(135deg, #b8cbb8, #e2c58b)"
+      image: "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "CRM Strategy & Implementation",
       description: "Optimize your customer relationships with AI-driven CRM solutions. Enhance lead management, sales automation, and customer retention.",
-      icon: <Users size={24} />,
-      gradient: "linear-gradient(135deg, #667eea, #764ba2)"
+      image: "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "AI Customer Experience",
       description: "Leverage generative AI to personalize customer interactions, automate support, and provide 24/7 intelligent assistance across all channels.",
-      icon: <Monitor size={24} />,
-      gradient: "linear-gradient(135deg, #ee9ca7, #ffdde1)"
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop"
     }
   ];
 
@@ -190,15 +182,18 @@ function App() {
             variants={staggerContainer}
           >
             {services.map((service, index) => (
-              <motion.div variants={fadeUp} className="glass-card service-card" key={index}>
-                <div className="service-icon" style={{ background: service.gradient }}>
-                  {service.icon}
+              <motion.div variants={fadeUp} className="image-card" key={index}>
+                <img src={service.image} alt={service.title} className="image-img" />
+                <div className="image-overlay">
+                  <h3>{service.title}</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '20px', fontSize: '0.95rem' }}>{service.description}</p>
+                  <a href="#services" className="service-link" style={{ color: 'var(--accent-1)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    Learn more <ChevronRight size={16} />
+                  </a>
                 </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <a href="#services" className="service-link">
-                  Learn more <ChevronRight size={16} />
-                </a>
+                <div className="image-title">
+                  <h3>{service.title}</h3>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -279,9 +274,9 @@ function App() {
             viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
           >
-            <motion.div variants={fadeUp} className="industry-card">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology & Comms" className="industry-img" />
-              <div className="industry-overlay">
+            <motion.div variants={fadeUp} className="image-card">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" alt="Technology & Comms" className="image-img" />
+              <div className="image-overlay">
                 <h3>Technology & Comms</h3>
                 <ul className="use-case-list">
                   <li><ChevronRight size={14} /> Predictive churn analytics & retention</li>
@@ -289,14 +284,14 @@ function App() {
                   <li><ChevronRight size={14} /> Network load optimization via AI</li>
                 </ul>
               </div>
-              <div className="industry-title">
+              <div className="image-title">
                 <h3>Technology & Comms</h3>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="industry-card">
-              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop" alt="Retail & CPG" className="industry-img" />
-              <div className="industry-overlay">
+            <motion.div variants={fadeUp} className="image-card">
+              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop" alt="Retail & CPG" className="image-img" />
+              <div className="image-overlay">
                 <h3>Retail & CPG</h3>
                 <ul className="use-case-list">
                   <li><ChevronRight size={14} /> Hyper-personalized shopping journeys</li>
@@ -304,14 +299,14 @@ function App() {
                   <li><ChevronRight size={14} /> Real-time price optimization models</li>
                 </ul>
               </div>
-              <div className="industry-title">
+              <div className="image-title">
                 <h3>Retail & CPG</h3>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="industry-card">
-              <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop" alt="Financial Services" className="industry-img" />
-              <div className="industry-overlay">
+            <motion.div variants={fadeUp} className="image-card">
+              <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop" alt="Financial Services" className="image-img" />
+              <div className="image-overlay">
                 <h3>Financial Services</h3>
                 <ul className="use-case-list">
                   <li><ChevronRight size={14} /> Real-time fraud detection & prevention</li>
@@ -319,14 +314,14 @@ function App() {
                   <li><ChevronRight size={14} /> Automated regulatory compliance reporting</li>
                 </ul>
               </div>
-              <div className="industry-title">
+              <div className="image-title">
                 <h3>Financial Services</h3>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="industry-card">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Manufacturing & Energy" className="industry-img" />
-              <div className="industry-overlay">
+            <motion.div variants={fadeUp} className="image-card">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Manufacturing & Energy" className="image-img" />
+              <div className="image-overlay">
                 <h3>Manufacturing & Energy</h3>
                 <ul className="use-case-list">
                   <li><ChevronRight size={14} /> Predictive maintenance for legacy gear</li>
@@ -334,7 +329,7 @@ function App() {
                   <li><ChevronRight size={14} /> Energy waste reduction through smart grids</li>
                 </ul>
               </div>
-              <div className="industry-title">
+              <div className="image-title">
                 <h3>Manufacturing & Energy</h3>
               </div>
             </motion.div>
