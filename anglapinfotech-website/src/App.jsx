@@ -422,10 +422,10 @@ function App() {
             <div className="footer-col">
               <h4>Industries</h4>
               <ul>
-                <li><a href="#">Technology & Comms</a></li>
-                <li><a href="#">Retail & CPG</a></li>
-                <li><a href="#">Financial Services</a></li>
-                <li><a href="#">Manufacturing & Energy</a></li>
+                <li><a href="#industries">Technology & Comms</a></li>
+                <li><a href="#industries">Retail & CPG</a></li>
+                <li><a href="#industries">Financial Services</a></li>
+                <li><a href="#industries">Manufacturing & Energy</a></li>
               </ul>
             </div>
             <div className="footer-col">
@@ -439,7 +439,7 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <div>&copy; {new Date().getFullYear()} Anglap Infotech Advisory LLC. All rights reserved.</div>
+            <div>&copy; 2022 Anglap Infotech Advisory LLC. All rights reserved.</div>
             <div className="social-links">
               <a href="#" aria-label="LinkedIn"><Monitor size={18} /></a>
               <a href="#" aria-label="Twitter"><Map size={18} /></a>
