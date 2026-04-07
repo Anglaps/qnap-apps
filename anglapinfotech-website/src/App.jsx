@@ -73,7 +73,7 @@ function App() {
     {
       title: "Revenue & Sales",
       description: "Intelligent revenue strategies built to outperform. Align with your goals, integrate seamlessly and boost CRM performance.",
-      image: "https://images.unsplash.com/photo-1553729459-efe14ef20550?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Data Engineering & Analytics",
