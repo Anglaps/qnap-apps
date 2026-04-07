@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { motion } from 'framer-motion';
 import { 
   Menu, X, ChevronRight, BarChart2, Zap, 
   Cpu, LayoutDashboard, Database, Target,
@@ -34,6 +35,24 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
   const services = [
     {
@@ -125,34 +144,53 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
-          <div className="hero-content">
-            <div className="badge">AI-Ingrained Business Consulting</div>
-            <h1>
-              Predict. Plan. <span className="gradient-text">Perform.</span><br />
-              Powered by <span className="gradient-text-alt">AI.</span>
-            </h1>
-            <p>
+          <motion.div 
+            className="hero-content"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeUp} className="badge">AI-Ingrained Business Consulting</motion.div>
+            <motion.div variants={fadeUp}>
+              <h1>
+                Predict. Plan. <span className="gradient-text">Perform.</span><br />
+                Powered by <span className="gradient-text-alt">AI.</span>
+              </h1>
+            </motion.div>
+            <motion.p variants={fadeUp}>
               We are an AI-ingrained business consultancy and advisory company that monetizes AI to create strategies that make economic sense for your business, bridging the gap between innovation and reality.
-            </p>
-            <div className="hero-buttons">
+            </motion.p>
+            <motion.div variants={fadeUp} className="hero-buttons">
               <button className="btn btn-primary">Explore Solutions <ChevronRight size={20} style={{ marginLeft: '8px' }} /></button>
               <button className="btn btn-secondary">Contact an Expert</button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Section */}
       <section className="section" id="services">
         <div className="container">
-          <div className="services-header">
+          <motion.div 
+            className="services-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <h2>Realize Strategic Outcomes Faster</h2>
             <p>Our world-class AI-ingrained solutions are deeply rooted and inseparable from every facet of strategy, execution, and innovation.</p>
-          </div>
+          </motion.div>
 
-          <div className="services-grid">
+          <motion.div 
+            className="services-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+          >
             {services.map((service, index) => (
-              <div className="glass-card service-card" key={index}>
+              <motion.div variants={fadeUp} className="glass-card service-card" key={index}>
                 <div className="service-icon" style={{ background: service.gradient }}>
                   {service.icon}
                 </div>
@@ -161,21 +199,27 @@ function App() {
                 <a href="#services" className="service-link">
                   Learn more <ChevronRight size={16} />
                 </a>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* About Section */}
       <section className="section" id="features">
         <div className="container features-container">
-          <div className="feature-content">
-            <h2>Convergence 3.0: The Agentic Foundation</h2>
-            <p>
+          <motion.div 
+            className="feature-content"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeUp}>Convergence 3.0: The Agentic Foundation</motion.h2>
+            <motion.p variants={fadeUp}>
               Software and engineering are evolving. Our integrated platform enables Vibe Coding and agentic insights, providing higher quality and high-performance delivery models.
-            </p>
-            <div className="feature-list">
+            </motion.p>
+            <motion.div variants={fadeUp} className="feature-list">
               <div className="feature-item">
                 <Check size={20} className="feature-check" />
                 <div>
@@ -197,25 +241,45 @@ function App() {
                   <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>From reactive fixes to strategic gains using agentic foresight and smart analytics.</p>
                 </div>
               </div>
-            </div>
-            <button className="btn btn-primary" style={{ marginTop: '32px' }}>Discover the Foundation</button>
-          </div>
-          <div className="feature-img-wrapper">
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <button className="btn btn-primary" style={{ marginTop: '32px' }}>Discover the Foundation</button>
+            </motion.div>
+          </motion.div>
+          <motion.div 
+            className="feature-img-wrapper"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data Analytics Visualization" />
-          </div>
+          </motion.div>
         </div>
       </section>
       
       {/* Industries Use Cases Section */}
       <section className="section" id="industries">
         <div className="container">
-          <div className="services-header">
+          <motion.div 
+            className="services-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <h2>Driving Value Across Industries</h2>
             <p>Our solutions are tailored to solve the specific complexities and capture unique opportunities within your industry verticals.</p>
-          </div>
+          </motion.div>
 
-          <div className="services-grid">
-            <div className="glass-card service-card">
+          <motion.div 
+            className="services-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeUp} className="glass-card service-card">
               <div className="service-icon" style={{ background: 'var(--accent-1)' }}>
                 <Smartphone size={24} />
               </div>
@@ -225,9 +289,9 @@ function App() {
                 <li><ChevronRight size={14} /> Multi-channel customer service automation</li>
                 <li><ChevronRight size={14} /> Network load optimization via AI</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="glass-card service-card">
+            <motion.div variants={fadeUp} className="glass-card service-card">
               <div className="service-icon" style={{ background: 'var(--accent-2)' }}>
                 <ShoppingBag size={24} />
               </div>
@@ -237,9 +301,9 @@ function App() {
                 <li><ChevronRight size={14} /> AI-driven inventory demand forecasting</li>
                 <li><ChevronRight size={14} /> Real-time price optimization models</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="glass-card service-card">
+            <motion.div variants={fadeUp} className="glass-card service-card">
               <div className="service-icon" style={{ background: '#10b981' }}>
                 <DollarSign size={24} />
               </div>
@@ -249,9 +313,9 @@ function App() {
                 <li><ChevronRight size={14} /> AI agents for wealth management</li>
                 <li><ChevronRight size={14} /> Automated regulatory compliance reporting</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="glass-card service-card">
+            <motion.div variants={fadeUp} className="glass-card service-card">
               <div className="service-icon" style={{ background: '#f59e0b' }}>
                 <Factory size={24} />
               </div>
@@ -261,21 +325,33 @@ function App() {
                 <li><ChevronRight size={14} /> Smart supply chain routing & resilience</li>
                 <li><ChevronRight size={14} /> Energy waste reduction through smart grids</li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Insights Section */}
       <section className="section" id="insights" style={{ background: 'rgba(0, 0, 0, 0.02)' }}>
         <div className="container">
-          <div className="services-header">
+          <motion.div 
+            className="services-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <h2>Expert Insights & Case Studies</h2>
             <p>Explore our latest thinking on how AI is reshaping the business landscape today and for years to come.</p>
-          </div>
+          </motion.div>
 
-          <div className="insights-grid">
-            <div className="insight-card glass-card">
+          <motion.div 
+            className="insights-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeUp} className="insight-card glass-card">
               <div className="insight-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" alt="AI Transformation" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div className="insight-tag">Special Report</div>
@@ -289,9 +365,9 @@ function App() {
                   <TrendingUp size={18} color="var(--accent-1)" />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="insight-card glass-card">
+            <motion.div variants={fadeUp} className="insight-card glass-card">
               <div className="insight-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Customer Success" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div className="insight-tag">Case Study</div>
@@ -305,9 +381,9 @@ function App() {
                   <Lightbulb size={18} color="var(--accent-2)" />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="insight-card glass-card">
+            <motion.div variants={fadeUp} className="insight-card glass-card">
               <div className="insight-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Data Analytics" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div className="insight-tag">Whitepaper</div>
@@ -321,21 +397,29 @@ function App() {
                   <Newspaper size={18} color="#10b981" />
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="cta-section">
         <div className="container">
-          <div className="cta-container">
-            <h2>Turn Ideas into AI Realities</h2>
-            <p>A collaborative hub that accelerates the development of cutting-edge AI solutions to solve real-world challenges. Discover and test the latest technologies today.</p>
-            <button className="btn btn-primary" style={{ padding: '16px 40px', fontSize: '1.1rem' }}>
-              Explore AI-First Lab
-            </button>
-          </div>
+          <motion.div 
+            className="cta-container"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeUp}>Turn Ideas into AI Realities</motion.h2>
+            <motion.p variants={fadeUp}>A collaborative hub that accelerates the development of cutting-edge AI solutions to solve real-world challenges. Discover and test the latest technologies today.</motion.p>
+            <motion.div variants={fadeUp}>
+              <button className="btn btn-primary" style={{ padding: '16px 40px', fontSize: '1.1rem' }}>
+                Explore AI-First Lab
+              </button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -343,14 +427,20 @@ function App() {
       <section className="section" id="about">
         <div className="container">
           <div className="features-container">
-            <div className="feature-content">
-              <div className="badge" style={{ background: 'rgba(124, 58, 237, 0.1)', color: '#7c3aed' }}>Our Story</div>
-              <h2>Pioneering AI-Driven Advisory</h2>
-              <p>
+            <motion.div 
+              className="feature-content"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeUp} className="badge" style={{ background: 'rgba(124, 58, 237, 0.1)', color: '#7c3aed' }}>Our Story</motion.div>
+              <motion.h2 variants={fadeUp}>Pioneering AI-Driven Advisory</motion.h2>
+              <motion.p variants={fadeUp}>
                 Founded on the belief that AI should be accessible, actionable, and aligned with core business values, Anglap Infotech Advisory LLC bridges the critical gap between technological potential and real-world economic results.
-              </p>
+              </motion.p>
               
-              <div className="contact-info-grid">
+              <motion.div variants={fadeUp} className="contact-info-grid">
                 <div className="glass-card contact-card">
                   <div className="contact-card-header">
                     <div className="contact-icon" style={{ background: 'var(--accent-1)' }}>
@@ -372,9 +462,9 @@ function App() {
                   <p className="contact-primary">admin@anglapinfotech.com</p>
                   <p className="contact-secondary">24/7 Global Response</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="stats-container">
+              <motion.div variants={fadeUp} className="stats-container">
                 <div className="stat-item">
                   <div className="stat-number" style={{ color: 'var(--accent-1)' }}>15+</div>
                   <div className="stat-label">Global Markets</div>
@@ -387,10 +477,17 @@ function App() {
                   <div className="stat-number" style={{ color: '#10b981' }}>2026</div>
                   <div className="stat-label">Vision Ready</div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             
-            <div className="glass-card" style={{ padding: '40px' }}>
+            <motion.div 
+              className="glass-card" 
+              style={{ padding: '40px' }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <h3 style={{ marginBottom: '24px' }}>Let's Build the Future</h3>
               <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -436,7 +533,7 @@ function App() {
                   Send Message <ChevronRight size={18} style={{ marginLeft: '8px' }} />
                 </button>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
