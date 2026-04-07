@@ -86,16 +86,16 @@ function App() {
           </div>
           
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
-            <div className="nav-links" onClick={() => setMobileMenuOpen(false)}>
-              <a href="#services">Services</a>
-              <a href="#industries">Industries</a>
-              <a href="#insights">Insights</a>
-              <a href="#about">About Us</a>
+            <div className="nav-links">
+              <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+              <a href="#industries" onClick={() => setMobileMenuOpen(false)}>Industries</a>
+              <a href="#insights" onClick={() => setMobileMenuOpen(false)}>Insights</a>
+              <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
             </div>
 
             <div className="nav-actions">
-              <button className="btn btn-secondary">Sign In</button>
-              <button className="btn btn-primary">Get Started</button>
+              <a href="#about" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>Sign In</a>
+              <a href="#services" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Get Started</a>
             </div>
           </div>
 
