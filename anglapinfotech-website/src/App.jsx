@@ -85,16 +85,18 @@ function App() {
             <span className="logo-text">Anglap Infotech</span>
           </div>
           
-          <div className="nav-links">
-            <a href="#services">Services</a>
-            <a href="#industries">Industries</a>
-            <a href="#insights">Insights</a>
-            <a href="#about">About Us</a>
-          </div>
+          <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
+            <div className="nav-links" onClick={() => setMobileMenuOpen(false)}>
+              <a href="#services">Services</a>
+              <a href="#industries">Industries</a>
+              <a href="#insights">Insights</a>
+              <a href="#about">About Us</a>
+            </div>
 
-          <div className="nav-actions">
-            <button className="btn btn-secondary">Sign In</button>
-            <button className="btn btn-primary">Get Started</button>
+            <div className="nav-actions">
+              <button className="btn btn-secondary">Sign In</button>
+              <button className="btn btn-primary">Get Started</button>
+            </div>
           </div>
 
           <button 
@@ -334,42 +336,42 @@ function App() {
                 Founded on the belief that AI should be accessible, actionable, and aligned with core business values, Anglap Infotech Advisory LLC bridges the critical gap between technological potential and real-world economic results.
               </p>
               
-              <div className="contact-info-grid" style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                <div className="glass-card" style={{ padding: '24px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                    <div style={{ background: 'var(--accent-1)', padding: '8px', borderRadius: '8px', color: 'white' }}>
+              <div className="contact-info-grid">
+                <div className="glass-card contact-card">
+                  <div className="contact-card-header">
+                    <div className="contact-icon" style={{ background: 'var(--accent-1)' }}>
                       <Phone size={20} />
                     </div>
-                    <h4 style={{ margin: 0 }}>US Headquarters</h4>
+                    <h4>US Headquarters</h4>
                   </div>
-                  <p style={{ margin: 0, fontSize: '1.2rem', fontWeight: 700 }}>+1 615 616 8616</p>
-                  <p style={{ margin: '8px 0 0', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Nashville, TN, USA</p>
+                  <p className="contact-primary">+1 615 616 8616</p>
+                  <p className="contact-secondary">Nashville, TN, USA</p>
                 </div>
 
-                <div className="glass-card" style={{ padding: '24px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                    <div style={{ background: 'var(--accent-2)', padding: '8px', borderRadius: '8px', color: 'white' }}>
+                <div className="glass-card contact-card">
+                  <div className="contact-card-header">
+                    <div className="contact-icon" style={{ background: 'var(--accent-2)' }}>
                       <Mail size={20} />
                     </div>
-                    <h4 style={{ margin: 0 }}>Official Support</h4>
+                    <h4>Official Support</h4>
                   </div>
-                  <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>admin@anglapinfotech.com</p>
-                  <p style={{ margin: '8px 0 0', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>24/7 Global Response</p>
+                  <p className="contact-primary">admin@anglapinfotech.com</p>
+                  <p className="contact-secondary">24/7 Global Response</p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '32px', marginTop: '48px' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent-1)' }}>15+</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Global Markets</div>
+              <div className="stats-container">
+                <div className="stat-item">
+                  <div className="stat-number" style={{ color: 'var(--accent-1)' }}>15+</div>
+                  <div className="stat-label">Global Markets</div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent-2)' }}>100%</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Client Trust</div>
+                <div className="stat-item">
+                  <div className="stat-number" style={{ color: 'var(--accent-2)' }}>100%</div>
+                  <div className="stat-label">Client Trust</div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, color: '#10b981' }}>2026</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', color: 'var(--text-secondary)' }}>Vision Ready</div>
+                <div className="stat-item">
+                  <div className="stat-number" style={{ color: '#10b981' }}>2026</div>
+                  <div className="stat-label">Vision Ready</div>
                 </div>
               </div>
             </div>
