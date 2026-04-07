@@ -12,6 +12,20 @@ import {
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    service: '',
+    query: ''
+  });
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, service, query } = contactForm;
+    const subject = encodeURIComponent(`Website Inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService Interest: ${service}\n\nMessage:\n${query}`);
+    window.location.href = `mailto:sales@anglapinfotech.com?subject=${subject}&body=${body}`;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -378,20 +392,47 @@ function App() {
             
             <div className="glass-card" style={{ padding: '40px' }}>
               <h3 style={{ marginBottom: '24px' }}>Let's Build the Future</h3>
-              <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                  <input type="text" placeholder="Full Name" className="form-input" />
-                  <input type="email" placeholder="Work Email" className="form-input" />
+                  <input 
+                    type="text" 
+                    placeholder="Full Name" 
+                    className="form-input" 
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
+                    required
+                  />
+                  <input 
+                    type="email" 
+                    placeholder="Work Email" 
+                    className="form-input" 
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                    required
+                  />
                 </div>
-                <select className="form-input">
-                  <option>Select Service Interest</option>
-                  <option>CRM Strategy</option>
-                  <option>AI Transformation</option>
-                  <option>Data Engineering</option>
-                  <option>Digital Strategy</option>
+                <select 
+                  className="form-input"
+                  value={contactForm.service}
+                  onChange={(e) => setContactForm({...contactForm, service: e.target.value})}
+                  required
+                >
+                  <option value="">Select Service Interest</option>
+                  <option value="CRM Strategy">CRM Strategy</option>
+                  <option value="AI Transformation">AI Transformation</option>
+                  <option value="Data Engineering">Data Engineering</option>
+                  <option value="Digital Strategy">Digital Strategy</option>
                 </select>
-                <textarea placeholder="How can we help you?" className="form-input" rows={4} style={{ resize: 'none' }}></textarea>
-                <button className="btn btn-primary" style={{ width: '100%', padding: '16px' }}>
+                <textarea 
+                  placeholder="How can we help you?" 
+                  className="form-input" 
+                  rows={4} 
+                  style={{ resize: 'none' }}
+                  value={contactForm.query}
+                  onChange={(e) => setContactForm({...contactForm, query: e.target.value})}
+                  required
+                ></textarea>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '16px' }}>
                   Send Message <ChevronRight size={18} style={{ marginLeft: '8px' }} />
                 </button>
               </form>
