@@ -186,9 +186,9 @@ function App() {
                 <img src={service.image} alt={service.title} className="image-img" />
                 <div className="image-overlay">
                   <h3>{service.title}</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '20px', fontSize: '0.95rem' }}>{service.description}</p>
-                  <a href="#services" className="service-link" style={{ color: 'var(--accent-1)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    Learn more <ChevronRight size={16} />
+                  <p style={{ color: '#ffffff', marginBottom: '20px', fontSize: '1rem', fontWeight: '500', lineHeight: '1.6' }}>{service.description}</p>
+                  <a href="#services" className="service-link" style={{ color: 'var(--accent-1)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    Learn more <ChevronRight size={18} />
                   </a>
                 </div>
                 <div className="image-title">

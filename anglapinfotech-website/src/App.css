@@ -681,9 +681,9 @@ html {
   left: 0;
   width: 100%;
   height: auto;
-  min-height: 50%;
-  background: linear-gradient(to top, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.85) 60%, rgba(15, 23, 42, 0) 100%);
-  color: white;
+  min-height: 55%;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.98) 0%, rgba(15, 23, 42, 0.95) 75%, rgba(15, 23, 42, 0) 100%);
+  color: #ffffff;
   padding: 60px 24px 24px 24px;
   display: flex;
   flex-direction: column;
@@ -714,7 +714,15 @@ html {
 }
 
 .image-overlay .use-case-list {
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+}
+
+.image-overlay .use-case-list li {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .image-overlay .use-case-list li svg {
