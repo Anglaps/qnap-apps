@@ -26,6 +26,32 @@ const CRMStrategy = () => {
     }
   };
 
+  const starBurst = {
+    hidden: { opacity: 0, scale: 0.5, filter: 'blur(4px)' },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      filter: 'blur(0px)',
+      transition: { 
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
+        mass: 1
+      }
+    }
+  };
+
+  const staggerBurst = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   return (
     <div className="app-container" style={{ paddingTop: '80px', paddingBottom: '100px' }}>
       {/* Return to Home Navigation */}
@@ -106,7 +132,7 @@ const CRMStrategy = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          variants={staggerContainer}
+          variants={staggerBurst}
           style={{ marginBottom: '80px' }}
         >
           <motion.h2 variants={fadeUp} style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '16px', marginBottom: '40px' }}>
@@ -114,7 +140,7 @@ const CRMStrategy = () => {
           </motion.h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <motion.div variants={starBurst} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
               <Cloud size={28} color="var(--accent-2)" style={{ flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <h3 style={{ marginBottom: '12px' }}>End-to-End Deployment</h3>
@@ -122,7 +148,7 @@ const CRMStrategy = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <motion.div variants={starBurst} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
               <Database size={28} color="var(--accent-2)" style={{ flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <h3 style={{ marginBottom: '12px' }}>Legacy Data Migration</h3>
@@ -130,7 +156,7 @@ const CRMStrategy = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <motion.div variants={starBurst} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
               <Share2 size={28} color="var(--accent-2)" style={{ flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <h3 style={{ marginBottom: '12px' }}>Custom API Integrations</h3>
@@ -138,7 +164,7 @@ const CRMStrategy = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <motion.div variants={starBurst} className="glass-card" style={{ padding: '32px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
               <Settings size={28} color="var(--accent-2)" style={{ flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <h3 style={{ marginBottom: '12px' }}>Automation & Workflow Rules</h3>
