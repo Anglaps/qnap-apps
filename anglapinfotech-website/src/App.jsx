@@ -311,7 +311,6 @@ function App() {
               </div>
             </motion.div>
 
-
             <motion.div variants={fadeUp} className="image-card">
               <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop" alt="Financial Services" className="image-img" />
               <div className="image-overlay">
@@ -580,7 +579,6 @@ function App() {
               <h4>Industries</h4>
               <ul>
                 <li><a href="#industries">Technology & Comms</a></li>
-
                 <li><a href="#industries">Financial Services</a></li>
                 <li><a href="#industries">Manufacturing & Energy</a></li>
               </ul>
