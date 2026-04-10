@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import CRMStrategy from './CRMStrategy';
 import { motion } from 'framer-motion';
 import { 
   Menu, X, ChevronRight, BarChart2, Zap, 
@@ -28,12 +29,28 @@ function App() {
     window.location.href = `mailto:sales@anglapinfotech.com?subject=${subject}&body=${body}`;
   };
 
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (currentHash === '' || currentHash.startsWith('#')) {
+        setIsScrolled(window.scrollY > 50);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentHash]);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+      setMobileMenuOpen(false);
+      window.scrollTo(0, 0); // Reset scroll on path change
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    // Setting initial hash on mount
+    handleHashChange();
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const staggerContainer = {
@@ -133,7 +150,11 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {currentHash === '#/crm-strategy' ? (
+        <CRMStrategy />
+      ) : (
+        <React.Fragment>
+          {/* Hero Section */}
       <section className="hero">
         <div className="container">
           <motion.div 
@@ -187,7 +208,7 @@ function App() {
                 <div className="image-overlay">
                   <h3>{service.title}</h3>
                   <p style={{ color: '#ffffff', marginBottom: '20px', fontSize: '1rem', fontWeight: '500', lineHeight: '1.6' }}>{service.description}</p>
-                  <a href="#services" className="service-link" style={{ color: 'var(--accent-1)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <a href={service.title === "CRM Strategy & Implementation" ? "#/crm-strategy" : "#services"} className="service-link" style={{ color: 'var(--accent-1)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                     Learn more <ChevronRight size={18} />
                   </a>
                 </div>
@@ -544,6 +565,8 @@ function App() {
           </div>
         </div>
       </section>
+      </React.Fragment>
+      )}
 
       {/* Footer */}
       <footer className="footer">
