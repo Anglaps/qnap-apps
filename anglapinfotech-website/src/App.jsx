@@ -73,6 +73,11 @@ function App() {
 
   const services = [
     {
+      title: "Sales Performance Management",
+      description: "Design transparent commission structures and unify territory schemas with tools like Varicent to amplify sales rep productivity and alignment.",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
       title: "Enterprise Business Planning",
       description: "Integrate strategic, financial, operational, and technology planning to align your organization, optimize resources, and drive growth.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
@@ -97,11 +102,7 @@ function App() {
       description: "Fuel intelligent decisions and business agility. We turn disconnected data into a strategic advantage for AI at scale.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
     },
-    {
-      title: "AI First Lab",
-      description: "A collaborative hub to accelerate the development of cutting-edge AI solutions. Test and refine the latest technologies.",
-      image: "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=1000&auto=format&fit=crop"
-    },
+
     {
       title: "CRM Strategy & Implementation",
       description: "Optimize your customer relationships with AI-driven CRM solutions. Enhance lead management, sales automation, and customer retention.",
