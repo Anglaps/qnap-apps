@@ -75,7 +75,7 @@ function App() {
     {
       title: "Sales Performance Management",
       description: "Design transparent commission structures and unify territory schemas with tools like Varicent to amplify sales rep productivity and alignment.",
-      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=1000&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop"
     },
     {
       title: "Enterprise Business Planning",
