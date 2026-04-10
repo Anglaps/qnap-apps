@@ -311,20 +311,6 @@ function App() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="image-card">
-              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop" alt="Retail & CPG" className="image-img" />
-              <div className="image-overlay">
-                <h3>Retail & CPG</h3>
-                <ul className="use-case-list">
-                  <li><ChevronRight size={14} /> Hyper-personalized shopping journeys</li>
-                  <li><ChevronRight size={14} /> AI-driven inventory demand forecasting</li>
-                  <li><ChevronRight size={14} /> Real-time price optimization models</li>
-                </ul>
-              </div>
-              <div className="image-title">
-                <h3>Retail & CPG</h3>
-              </div>
-            </motion.div>
 
             <motion.div variants={fadeUp} className="image-card">
               <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop" alt="Financial Services" className="image-img" />
@@ -594,7 +580,7 @@ function App() {
               <h4>Industries</h4>
               <ul>
                 <li><a href="#industries">Technology & Comms</a></li>
-                <li><a href="#industries">Retail & CPG</a></li>
+
                 <li><a href="#industries">Financial Services</a></li>
                 <li><a href="#industries">Manufacturing & Energy</a></li>
               </ul>
