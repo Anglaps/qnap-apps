@@ -8,10 +8,11 @@ import {
   Check, Monitor, Map, Mail, Phone, Lock, Users,
   Smartphone, ShoppingBag, DollarSign, Factory,
   TrendingUp, Newspaper, Lightbulb,
-  Globe, Headset
+  Globe, Headset, Sun, Moon
 } from 'lucide-react';
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [contactForm, setContactForm] = useState({
@@ -52,6 +53,15 @@ function App() {
     handleHashChange();
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -137,6 +147,14 @@ function App() {
             </div>
 
             <div className="nav-actions">
+              <button 
+                className="btn btn-secondary theme-toggle" 
+                onClick={toggleTheme}
+                aria-label="Toggle Theme"
+                style={{ padding: '8px', minWidth: '40px', borderRadius: '50%' }}
+              >
+                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              </button>
               <a href="#about" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>Sign In</a>
               <a href="#services" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Get Started</a>
             </div>
@@ -345,7 +363,7 @@ function App() {
       </section>
 
       {/* Insights Section */}
-      <section className="section" id="insights" style={{ background: 'rgba(0, 0, 0, 0.02)' }}>
+      <section className="section insights-section" id="insights">
         <div className="container">
           <motion.div 
             className="services-header"

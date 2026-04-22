@@ -14,7 +14,34 @@
   --accent-4: #ec4899;
 
   --border-color: rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --footer-bg: #f1f5f9;
+  --card-bg: var(--bg-glass);
+  --input-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
+
+[data-theme='dark'] {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-glass: rgba(15, 23, 42, 0.7);
+  --bg-glass-hover: rgba(30, 41, 59, 0.9);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  
+  --accent-1: #38bdf8;
+  --accent-2: #60a5fa;
+  --accent-3: #a78bfa;
+  --accent-4: #f472b6;
+
+  --border-color: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(2, 6, 23, 0.8);
+  --footer-bg: #020617;
+  --card-bg: rgba(30, 41, 59, 0.5);
+  --input-bg: #1e293b;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
 
 * {
   margin: 0;
@@ -29,7 +56,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
+
 
 a {
   text-decoration: none;
@@ -87,8 +116,8 @@ h1, h2, h3, h4, h5, h6 {
 .glass-card:hover {
   background: var(--bg-glass-hover);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-color: var(--border-color);
 }
 
 .btn {
@@ -122,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary:hover {
   background: var(--bg-glass-hover);
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-1);
 }
 
 .container {
@@ -133,4 +162,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   padding: 100px 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
