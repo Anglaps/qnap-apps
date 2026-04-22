@@ -31,7 +31,9 @@ fi
 
 # Push to GitHub
 echo "📤 Pushing to GitHub (origin main)..."
+export SKIP_NAS_HOOK=1
 git push origin main
+unset SKIP_NAS_HOOK
 
 if [ $? -ne 0 ]; then
     echo "❌ Error: Failed to push to GitHub. Aborting NAS sync."
