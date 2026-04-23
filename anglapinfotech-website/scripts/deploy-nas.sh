@@ -14,7 +14,7 @@
 # Please ensure you have SSH access to your NAS set up.
 # Update the NAS_HOST with your actual NAS IP address.
 NAS_USER="admin"
-NAS_HOST="192.168.1.100" # <--- UPDATE THIS IP
+NAS_HOST="192.168.1.195" # Automatically updated from network discovery
 
 echo "🚀 [1/3] Starting Local Deployment... "
 

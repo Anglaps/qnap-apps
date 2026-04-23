@@ -11,8 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
     <script>
       (function() {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', theme);
+        const preference = localStorage.getItem('theme_preference');
+        if (preference) {
+          document.documentElement.setAttribute('data-theme', preference);
+        } else {
+          const hour = new Date().getHours();
+          const isNight = hour >= 19 || hour < 7;
+          document.documentElement.setAttribute('data-theme', isNight ? 'dark' : 'light');
+        }
       })();
     </script>
   </head>

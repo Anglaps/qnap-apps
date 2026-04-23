@@ -12,7 +12,8 @@ import {
 } from 'lucide-react';
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme_preference') || 'light');
+  const [isAuto, setIsAuto] = useState(!localStorage.getItem('theme_preference'));
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [contactForm, setContactForm] = useState({
@@ -56,11 +57,59 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    if (!isAuto) {
+      localStorage.setItem('theme_preference', theme);
+    }
+  }, [theme, isAuto]);
+
+  useEffect(() => {
+    const detectTheme = async () => {
+      if (!isAuto) return;
+
+      const fallbackTimeCheck = () => {
+        const hour = new Date().getHours();
+        const isNight = hour >= 19 || hour < 7;
+        setTheme(isNight ? 'dark' : 'light');
+      };
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const { latitude, longitude } = position.coords;
+          try {
+            const res = await fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&formatted=0`);
+            const data = await res.json();
+            if (data.status === 'OK') {
+              const { sunrise, sunset } = data.results;
+              const now = new Date();
+              const sunriseDate = new Date(sunrise);
+              const sunsetDate = new Date(sunset);
+
+              if (now >= sunriseDate && now < sunsetDate) {
+                setTheme('light');
+              } else {
+                setTheme('dark');
+              }
+            } else {
+              fallbackTimeCheck();
+            }
+          } catch (error) {
+            fallbackTimeCheck();
+          }
+        }, fallbackTimeCheck);
+      } else {
+        fallbackTimeCheck();
+      }
+    };
+
+    detectTheme();
+    // Refresh every hour to check for sunset transitions
+    const interval = setInterval(detectTheme, 3600000);
+    return () => clearInterval(interval);
+  }, [isAuto]);
 
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    setIsAuto(false);
   };
 
   const staggerContainer = {
@@ -125,6 +174,20 @@ function App() {
     }
   ];
 
+  const products = [
+    {
+      title: "NexusClub: Enterprise Club Management",
+      description: "A professional, full-cycle club management ecosystem. Unified member analytics, automated revenue streams, and enterprise-grade facility orchestration.",
+      image: "/professional-club.png",
+      url: "https://clubs.anglaps.com"
+    },
+    {
+      title: "Lumina: AI Event Media",
+      description: "Next-gen professional photo booths powered by AI. Real-time background synthesis, cinematic enhancements, and instant social orchestration.",
+      image: "/photo-booth.png"
+    }
+  ];
+
   return (
     <div className="app-container">
       <div className="bg-glow-1"></div>
@@ -141,6 +204,7 @@ function App() {
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
             <div className="nav-links">
               <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+              <a href="#products" onClick={() => setMobileMenuOpen(false)}>Products</a>
               <a href="#industries" onClick={() => setMobileMenuOpen(false)}>Industries</a>
               <a href="#insights" onClick={() => setMobileMenuOpen(false)}>Insights</a>
               <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
@@ -151,12 +215,25 @@ function App() {
                 className="btn btn-secondary theme-toggle" 
                 onClick={toggleTheme}
                 aria-label="Toggle Theme"
-                style={{ padding: '8px', minWidth: '40px', borderRadius: '50%' }}
+                style={{ padding: '8px', minWidth: '40px', borderRadius: '50%', position: 'relative' }}
               >
                 {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                {isAuto && (
+                  <span style={{ 
+                    position: 'absolute', 
+                    top: '-6px', 
+                    right: '-6px', 
+                    fontSize: '8px', 
+                    background: 'var(--accent-1)', 
+                    color: 'white', 
+                    padding: '2px 4px', 
+                    borderRadius: '4px',
+                    fontWeight: 'bold',
+                    letterSpacing: '0.5px'
+                  }}>AUTO</span>
+                )}
               </button>
               <a href="#about" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>Sign In</a>
-              <a href="#services" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Get Started</a>
             </div>
           </div>
 
@@ -227,12 +304,66 @@ function App() {
                 <div className="image-overlay">
                   <h3>{service.title}</h3>
                   <p style={{ color: '#ffffff', marginBottom: '20px', fontSize: '1rem', fontWeight: '500', lineHeight: '1.6' }}>{service.description}</p>
-                  <a href={service.title === "CRM Strategy & Implementation" ? "#/crm-strategy" : "#services"} className="service-link" style={{ color: 'var(--accent-1)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <a 
+                    href={service.url || (service.title === "CRM Strategy & Implementation" ? "#/crm-strategy" : "#services")} 
+                    target={service.url ? "_blank" : undefined}
+                    rel={service.url ? "noopener noreferrer" : undefined}
+                    className="service-link" 
+                    style={{ color: 'var(--accent-1)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
                     Learn more <ChevronRight size={18} />
                   </a>
                 </div>
                 <div className="image-title">
                   <h3>{service.title}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="section" id="products" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <motion.div 
+            className="services-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
+            <div className="badge" style={{ background: 'var(--accent-1)', color: 'white' }}>Proprietary Ecosystem</div>
+            <h2>Built in Anglaps: Products</h2>
+            <p>Enterprise-grade software solutions engineered to solve complex operational challenges with agentic AI and predictive analytics.</p>
+          </motion.div>
+
+          <motion.div 
+            className="services-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))' }}
+          >
+            {products.map((product, index) => (
+              <motion.div variants={fadeUp} className="image-card" key={index} style={{ height: '480px' }}>
+                <img src={product.image} alt={product.title} className="image-img" />
+                <div className="image-overlay" style={{ minHeight: '60%' }}>
+                  <h3>{product.title}</h3>
+                  <p style={{ color: '#ffffff', marginBottom: '24px', fontSize: '1.05rem', fontWeight: '500', lineHeight: '1.6' }}>{product.description}</p>
+                  <a 
+                    href={product.url || "#products"} 
+                    target={product.url ? "_blank" : undefined}
+                    rel={product.url ? "noopener noreferrer" : undefined}
+                    className="btn btn-primary" 
+                    style={{ width: 'fit-content', padding: '12px 24px' }}
+                  >
+                    {product.url ? "Launch Solution" : "View Case Study"} <ChevronRight size={18} style={{ marginLeft: '8px' }} />
+                  </a>
+                </div>
+                <div className="image-title">
+                  <h3>{product.title}</h3>
                 </div>
               </motion.div>
             ))}

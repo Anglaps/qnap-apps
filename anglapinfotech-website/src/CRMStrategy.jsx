@@ -69,11 +69,11 @@ const CRMStrategy = () => {
           variants={staggerContainer}
           style={{ marginBottom: '60px' }}
         >
-          <motion.div variants={fadeUp} className="badge" style={{ background: 'rgba(102, 126, 234, 0.1)', color: '#667eea' }}>
+          <motion.div variants={fadeUp} className="badge" style={{ background: 'var(--accent-2)', color: 'white', opacity: 0.9 }}>
             Service Deep Dive
           </motion.div>
           <motion.h1 variants={fadeUp} style={{ fontSize: '3.5rem', marginBottom: '24px', letterSpacing: '-1px' }}>
-            CRM Strategy & <span className="gradient-text" style={{ backgroundImage: 'linear-gradient(135deg, #667eea, #764ba2)' }}>Implementation</span>
+            CRM Strategy & <span className="gradient-text">Implementation</span>
           </motion.h1>
           <motion.p variants={fadeUp} style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '800px', lineHeight: '1.8' }}>
             Optimize your customer relationships with AI-driven CRM solutions. Enhance lead management, sales automation, and customer retention.
@@ -94,32 +94,32 @@ const CRMStrategy = () => {
           
           <div className="services-grid">
             <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ background: 'rgba(14, 165, 233, 0.1)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
-                <Target size={28} color="#0ea5e9" />
+              <div style={{ background: 'var(--border-color)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
+                <Target size={28} color="var(--accent-1)" />
               </div>
               <h3 style={{ marginBottom: '16px' }}>Business Process Mapping</h3>
               <p style={{ color: 'var(--text-secondary)' }}>Auditing current sales, marketing, and service workflows to identify bottlenecks and optimize efficiency.</p>
             </motion.div>
-
+ 
             <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ background: 'rgba(139, 92, 246, 0.1)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
-                <Layers size={28} color="#8b5cf6" />
+              <div style={{ background: 'var(--border-color)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
+                <Layers size={28} color="var(--accent-3)" />
               </div>
               <h3 style={{ marginBottom: '16px' }}>Platform Selection Advice</h3>
               <p style={{ color: 'var(--text-secondary)' }}>Helping clients choose between Salesforce, HubSpot, Microsoft Dynamics, or niche platforms strictly based on ROI goals.</p>
             </motion.div>
-
+ 
             <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
+              <div style={{ background: 'var(--border-color)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
                 <Database size={28} color="#10b981" />
               </div>
               <h3 style={{ marginBottom: '16px' }}>Data Governance Policy</h3>
               <p style={{ color: 'var(--text-secondary)' }}>Defining how data is collected, cleaned, and maintained to ensure absolute reliance on a "Single Source of Truth."</p>
             </motion.div>
-
+ 
             <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
-              <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
-                <Settings size={28} color="#ec4899" />
+              <div style={{ background: 'var(--border-color)', padding: '16px', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
+                <Settings size={28} color="var(--accent-4)" />
               </div>
               <h3 style={{ marginBottom: '16px' }}>KPI & Dashboard Design</h3>
               <p style={{ color: 'var(--text-secondary)' }}>Defining the metrics that matter (CAC, LTV, Pipeline Velocity) before the technical build begins for measurable outcomes.</p>
@@ -180,31 +180,31 @@ const CRMStrategy = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          style={{ background: 'var(--text-primary)', color: 'white', borderRadius: '24px', padding: '60px 40px', overflow: 'hidden', position: 'relative' }}
+          style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '24px', padding: '60px 40px', overflow: 'hidden', position: 'relative' }}
         >
           {/* Decorative background glow inside the black box */}
           <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 0 }}></div>
           
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <motion.h2 variants={fadeUp} style={{ marginBottom: '48px', color: 'white' }}>Why Choose Us: Technical Edge</motion.h2>
-
+            <div style={{ position: 'relative', zIndex: 1 }}>
+            <motion.h2 variants={fadeUp} style={{ marginBottom: '48px' }}>Why Choose Us: Technical Edge</motion.h2>
+ 
             <div className="services-grid" style={{ gap: '32px' }}>
-              <motion.div variants={fadeUp} style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '32px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
                 <Target size={32} color="#f59e0b" style={{ marginBottom: '20px' }} />
-                <h4 style={{ fontSize: '1.3rem', marginBottom: '12px', color: 'white' }}>Sales Performance Management (SPM)</h4>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>We uniquely link your CRM data directly to complex commission structures and incentive plans to seamlessly motivate sales reps.</p>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>Sales Performance Management (SPM)</h4>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>We uniquely link your CRM data directly to complex commission structures and incentive plans to seamlessly motivate sales reps.</p>
               </motion.div>
-
-              <motion.div variants={fadeUp} style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '32px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <Cpu size={32} color="#38bdf8" style={{ marginBottom: '20px' }} />
-                <h4 style={{ fontSize: '1.3rem', marginBottom: '12px', color: 'white' }}>AI-Driven Insights</h4>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>We implement predictive lead scoring and automated sentiment analysis natively within your CRM using local or cloud-based AI models.</p>
+ 
+              <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
+                <Cpu size={32} color="var(--accent-1)" style={{ marginBottom: '20px' }} />
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>AI-Driven Insights</h4>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>We implement predictive lead scoring and automated sentiment analysis natively within your CRM using local or cloud-based AI models.</p>
               </motion.div>
-
-              <motion.div variants={fadeUp} style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '32px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+ 
+              <motion.div variants={fadeUp} className="glass-card" style={{ padding: '32px' }}>
                 <Code size={32} color="#10b981" style={{ marginBottom: '20px' }} />
-                <h4 style={{ fontSize: '1.3rem', marginBottom: '12px', color: 'white' }}>Custom Scripting</h4>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem' }}>For integrations that "out-of-the-box" connectors simply cannot manage, we write custom Python architecture to handle complex data transformations.</p>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>Custom Scripting</h4>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>For integrations that "out-of-the-box" connectors simply cannot manage, we write custom Python architecture to handle complex data transformations.</p>
               </motion.div>
             </div>
           </div>
