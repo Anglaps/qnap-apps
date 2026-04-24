@@ -197,7 +197,7 @@ function App() {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
           <div className="logo-container">
-            <img src={theme === 'light' ? "/logo-v2.png" : "/logo-night-v2.png"} alt="Anglap Infotech Logo" className="logo-img" />
+            <img src={theme === 'light' ? "/logo-anglaps.png" : "/logo-anglaps-night.png"} alt="Anglaps Logo" className="logo-img" />
           </div>
           
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
@@ -291,7 +291,7 @@ function App() {
               <div className="image-border-bg"></div>
               <img 
                 src="/about-team.png" 
-                alt="Anglap Infotech Team" 
+                alt="Anglaps Team" 
                 className="about-main-img" 
               />
               <div className="stat-floating-card">
@@ -315,7 +315,7 @@ function App() {
               <div className="about-subtitle">#ABOUT ANGLAP</div>
               <h2 className="about-title">Who We Are</h2>
               <p className="about-description">
-                At Anglap Infotech, we create Winning Opportunities For All. We are an AI-ingrained business consultancy that bridges the gap between theoretical innovation and practical economic reality. 
+                At Anglaps, we create Winning Opportunities For All. We are an AI-ingrained business consultancy that bridges the gap between theoretical innovation and practical economic reality. 
                 <br /><br />
                 We help organizations innovate, grow, and remain competitive in a changing digital world. Our mission is to connect business goals with tech solutions through expert consulting, custom product engineering, and strategic data governance.
               </p>
@@ -605,7 +605,7 @@ function App() {
               <motion.div variants={fadeUp} className="badge" style={{ background: 'rgba(124, 58, 237, 0.1)', color: '#7c3aed' }}>Our Story</motion.div>
               <motion.h2 variants={fadeUp}>Pioneering AI-Driven Advisory</motion.h2>
               <motion.p variants={fadeUp}>
-                Founded on the belief that AI should be accessible, actionable, and aligned with core business values, Anglap Infotech Advisory LLC bridges the critical gap between technological potential and real-world economic results.
+                Founded on the belief that AI should be accessible, actionable, and aligned with core business values, Anglaps bridges the critical gap between technological potential and real-world economic results.
               </motion.p>
               
               <motion.div variants={fadeUp} className="contact-info-grid">
@@ -712,7 +712,7 @@ function App() {
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="logo-container">
-                <img src={theme === 'light' ? "/logo-v2.png" : "/logo-night-v2.png"} alt="Anglap Infotech Logo" className="logo-img" />
+                <img src={theme === 'light' ? "/logo-anglaps.png" : "/logo-anglaps-night.png"} alt="Anglaps Logo" className="logo-img" />
               </div>
               <p>Empowering global enterprises with AI-ingrained innovations, leading the digital and business transformation journey.</p>
             </div>
@@ -744,7 +744,7 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <div>&copy; 2022 Anglap Infotech Advisory LLC. All rights reserved.</div>
+            <div>&copy; 2022 Anglaps Advisory LLC. All rights reserved.</div>
             <div className="social-links">
               <a href="#" aria-label="LinkedIn"><Monitor size={18} /></a>
               <a href="#" aria-label="Twitter"><Map size={18} /></a>
