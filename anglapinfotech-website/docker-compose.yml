@@ -1,0 +1,7 @@
+services:
+  anglaps-website:
+    build: .
+    container_name: anglaps-website
+    restart: unless-stopped
+    ports:
+      - "8080:80"
