@@ -197,7 +197,7 @@ function App() {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
           <div className="logo-container">
-            <img src={theme === 'light' ? "/logo.png" : "/logo-dark.png"} alt="Anglap Infotech Logo" className="logo-img" />
+            <img src={theme === 'light' ? "/logo.png" : "/logo-night.png"} alt="Anglap Infotech Logo" className="logo-img" />
             <span className="logo-text">Anglap Infotech</span>
           </div>
           
@@ -713,7 +713,7 @@ function App() {
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="logo-container">
-                <img src={theme === 'light' ? "/logo.png" : "/logo-dark.png"} alt="Anglap Infotech Logo" className="logo-img" />
+                <img src={theme === 'light' ? "/logo.png" : "/logo-night.png"} alt="Anglap Infotech Logo" className="logo-img" />
                 <span className="logo-text">Anglap Infotech</span>
               </div>
               <p>Empowering global enterprises with AI-ingrained innovations, leading the digital and business transformation journey.</p>
