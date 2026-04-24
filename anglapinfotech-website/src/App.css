@@ -60,11 +60,12 @@ html {
 }
 
 .logo-img {
-  height: 110px;
+  height: 160px;
   width: auto;
   display: block;
   background-color: transparent;
   padding: 0;
+  transition: transform 0.3s ease;
 }
 
 .logo-text {
