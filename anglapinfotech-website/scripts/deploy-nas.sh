@@ -3,7 +3,7 @@
 # ==============================================================================
 # QNAP NAS DEPLOYMENT HOOK
 # ==============================================================================
-# This script automates the deployment of the Anglap Infotech website to the 
+# This script automates the deployment of the ANGLAPS INC website to the 
 # QNAP NAS as per the required workflow:
 # 1. Local Commit & Push
 # 2. NAS Code Sync (via Docker)

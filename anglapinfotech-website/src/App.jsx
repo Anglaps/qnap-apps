@@ -28,7 +28,7 @@ function App() {
     const { name, email, service, query } = contactForm;
     const subject = encodeURIComponent(`Website Inquiry from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nService Interest: ${service}\n\nMessage:\n${query}`);
-    window.location.href = `mailto:sales@anglapinfotech.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:sales@anglaps.com?subject=${subject}&body=${body}`;
   };
 
   const [currentHash, setCurrentHash] = useState(window.location.hash);
@@ -197,7 +197,7 @@ function App() {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
           <div className="logo-container">
-            <img src={theme === 'light' ? "/logo-anglaps.png" : "/logo-anglaps-night.png"} alt="Anglaps Logo" className="logo-img" />
+            <img src={theme === 'light' ? "/logo-anglaps.png" : "/logo-anglaps-night.png"} alt="ANGLAPS INC Logo" className="logo-img" />
           </div>
           
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
@@ -291,7 +291,7 @@ function App() {
               <div className="image-border-bg"></div>
               <img 
                 src="/about-team.png" 
-                alt="Anglaps Team" 
+                alt="ANGLAPS INC Team" 
                 className="about-main-img" 
               />
               <div className="stat-floating-card">
@@ -312,10 +312,10 @@ function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="about-subtitle">#ABOUT ANGLAP</div>
+              <div className="about-subtitle">#ABOUT ANGLAPS</div>
               <h2 className="about-title">Who We Are</h2>
               <p className="about-description">
-                At Anglaps, we create Winning Opportunities For All. We are an AI-ingrained business consultancy that bridges the gap between theoretical innovation and practical economic reality. 
+                At ANGLAPS INC, we create Winning Opportunities For All. We are an AI-ingrained business consultancy that bridges the gap between theoretical innovation and practical economic reality. 
                 <br /><br />
                 We help organizations innovate, grow, and remain competitive in a changing digital world. Our mission is to connect business goals with tech solutions through expert consulting, custom product engineering, and strategic data governance.
               </p>
@@ -392,7 +392,7 @@ function App() {
             variants={fadeUp}
           >
             <div className="badge" style={{ background: 'var(--accent-1)', color: 'white' }}>Proprietary Ecosystem</div>
-            <h2>Built in Anglaps: Products</h2>
+            <h2>Built in ANGLAPS INC: Products</h2>
             <p>Enterprise-grade software solutions engineered to solve complex operational challenges with agentic AI and predictive analytics.</p>
           </motion.div>
 
@@ -605,7 +605,7 @@ function App() {
               <motion.div variants={fadeUp} className="badge" style={{ background: 'rgba(124, 58, 237, 0.1)', color: '#7c3aed' }}>Our Story</motion.div>
               <motion.h2 variants={fadeUp}>Pioneering AI-Driven Advisory</motion.h2>
               <motion.p variants={fadeUp}>
-                Founded on the belief that AI should be accessible, actionable, and aligned with core business values, Anglaps bridges the critical gap between technological potential and real-world economic results.
+                Founded on the belief that AI should be accessible, actionable, and aligned with core business values, ANGLAPS INC bridges the critical gap between technological potential and real-world economic results.
               </motion.p>
               
               <motion.div variants={fadeUp} className="contact-info-grid">
@@ -627,7 +627,7 @@ function App() {
                     </div>
                     <h4>Official Support</h4>
                   </div>
-                  <p className="contact-primary">admin@anglapinfotech.com</p>
+                  <p className="contact-primary">admin@anglaps.com</p>
                   <p className="contact-secondary">24/7 Global Response</p>
                 </div>
               </motion.div>
@@ -712,7 +712,7 @@ function App() {
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="logo-container">
-                <img src={theme === 'light' ? "/logo-anglaps.png" : "/logo-anglaps-night.png"} alt="Anglaps Logo" className="logo-img" />
+                <img src={theme === 'light' ? "/logo-anglaps.png" : "/logo-anglaps-night.png"} alt="ANGLAPS INC Logo" className="logo-img" />
               </div>
               <p>Empowering global enterprises with AI-ingrained innovations, leading the digital and business transformation journey.</p>
             </div>
@@ -744,7 +744,7 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <div>&copy; 2022 Anglaps Advisory LLC. All rights reserved.</div>
+            <div>&copy; 2022 ANGLAPS INC. All rights reserved.</div>
             <div className="social-links">
               <a href="#" aria-label="LinkedIn"><Monitor size={18} /></a>
               <a href="#" aria-label="Twitter"><Map size={18} /></a>
