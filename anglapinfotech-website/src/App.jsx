@@ -278,54 +278,24 @@ function App() {
       </section>
 
        {/* About Us Section (Winofa Style) */}
-      <section className="section" id="about" style={{ background: 'var(--bg-primary)' }}>
+      <section className="section about-section" id="about">
         <div className="container">
-          <div className="about-winofa-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)', gap: '80px', alignItems: 'center' }}>
+          <div className="about-winofa-layout">
             <motion.div 
               className="about-image-wrapper"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ position: 'relative' }}
             >
               {/* Stylized Border Background */}
-              <div style={{ 
-                position: 'absolute', 
-                top: '-20px', 
-                left: '-20px', 
-                width: '100%', 
-                height: '100%', 
-                background: 'linear-gradient(135deg, #4ade80 0%, #3b82f6 100%)', 
-                borderRadius: '12px',
-                zIndex: 0
-              }}></div>
+              <div className="image-border-bg"></div>
               <img 
                 src="/about-team.png" 
                 alt="Anglap Infotech Team" 
-                style={{ 
-                  width: '100%', 
-                  height: 'auto', 
-                  borderRadius: '12px', 
-                  position: 'relative', 
-                  zIndex: 1,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
-                }} 
+                className="about-main-img" 
               />
-              <div style={{
-                position: 'absolute',
-                bottom: '-30px',
-                right: '40px',
-                background: 'var(--bg-primary)',
-                padding: '20px 30px',
-                borderRadius: '8px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                zIndex: 2,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                border: '1px solid var(--border-color)'
-              }}>
+              <div className="stat-floating-card">
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
                   <TrendingUp size={24} />
                 </div>
@@ -343,22 +313,22 @@ function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div style={{ color: '#4ade80', fontWeight: '700', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>#ABOUT ANGLAP</div>
-              <h2 style={{ fontSize: '3rem', color: 'var(--text-primary)', marginBottom: '24px', fontWeight: '800', lineHeight: '1.1' }}>Who We Are</h2>
-              <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '32px' }}>
+              <div className="about-subtitle">#ABOUT ANGLAP</div>
+              <h2 className="about-title">Who We Are</h2>
+              <p className="about-description">
                 At Anglap Infotech, we create Winning Opportunities For All. We are an AI-ingrained business consultancy that bridges the gap between theoretical innovation and practical economic reality. 
                 <br /><br />
                 We help organizations innovate, grow, and remain competitive in a changing digital world. Our mission is to connect business goals with tech solutions through expert consulting, custom product engineering, and strategic data governance.
               </p>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div className="pillar-grid">
                 <div className="pillar-item">
-                  <h4 style={{ color: 'var(--text-primary)', marginBottom: '8px', fontWeight: '700' }}>Our Mission</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>To turn complex AI into profitable strategies that make economic sense.</p>
+                  <h4>Our Mission</h4>
+                  <p>To turn complex AI into profitable strategies that make economic sense.</p>
                 </div>
                 <div className="pillar-item">
-                  <h4 style={{ color: 'var(--text-primary)', marginBottom: '8px', fontWeight: '700' }}>Our Vision</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>To redefine the agentic foundation of modern global industry.</p>
+                  <h4>Our Vision</h4>
+                  <p>To redefine the agentic foundation of modern global industry.</p>
                 </div>
               </div>
             </motion.div>
@@ -433,7 +403,7 @@ function App() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))' }}
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}
           >
             {products.map((product, index) => (
               <motion.div variants={fadeUp} className="image-card" key={index} style={{ height: '480px' }}>
