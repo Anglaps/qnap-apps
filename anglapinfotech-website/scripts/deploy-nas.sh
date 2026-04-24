@@ -14,7 +14,8 @@
 # Please ensure you have SSH access to your NAS set up.
 # Update the NAS_HOST with your actual NAS IP address.
 NAS_USER="admin"
-NAS_HOST="192.168.1.195" # Automatically updated from network discovery
+NAS_HOST="192.168.1.195"
+NAS_PORT="2222"
 
 echo "🚀 [1/3] Starting Local Deployment... "
 
@@ -45,7 +46,7 @@ echo "✅ Local push complete."
 # Trigger NAS Sync and Build
 echo "📡 [2/3] Connecting to QNAP NAS to Sync Code..."
 
-ssh ${NAS_USER}@${NAS_HOST} << 'EOF'
+ssh -p ${NAS_PORT} ${NAS_USER}@${NAS_HOST} << 'EOF'
   echo "📥 [NAS] Pulling latest files from GitHub..."
   docker run --rm \
     -v /share/Container:/data \
