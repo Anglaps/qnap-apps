@@ -203,11 +203,12 @@ function App() {
           
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
             <div className="nav-links">
+              <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
               <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
               <a href="#products" onClick={() => setMobileMenuOpen(false)}>Products</a>
               <a href="#industries" onClick={() => setMobileMenuOpen(false)}>Industries</a>
               <a href="#insights" onClick={() => setMobileMenuOpen(false)}>Insights</a>
-              <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</a>
             </div>
 
             <div className="nav-actions">
@@ -233,7 +234,6 @@ function App() {
                   }}>AUTO</span>
                 )}
               </button>
-              <a href="#about" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>Sign In</a>
             </div>
           </div>
 
@@ -274,6 +274,95 @@ function App() {
               <button className="btn btn-secondary">Contact an Expert</button>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+       {/* About Us Section (Winofa Style) */}
+      <section className="section" id="about" style={{ background: 'var(--bg-primary)' }}>
+        <div className="container">
+          <div className="about-winofa-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)', gap: '80px', alignItems: 'center' }}>
+            <motion.div 
+              className="about-image-wrapper"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{ position: 'relative' }}
+            >
+              {/* Stylized Border Background */}
+              <div style={{ 
+                position: 'absolute', 
+                top: '-20px', 
+                left: '-20px', 
+                width: '100%', 
+                height: '100%', 
+                background: 'linear-gradient(135deg, #4ade80 0%, #3b82f6 100%)', 
+                borderRadius: '12px',
+                zIndex: 0
+              }}></div>
+              <img 
+                src="/about-team.png" 
+                alt="Anglap Infotech Team" 
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  borderRadius: '12px', 
+                  position: 'relative', 
+                  zIndex: 1,
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+                }} 
+              />
+              <div style={{
+                position: 'absolute',
+                bottom: '-30px',
+                right: '40px',
+                background: 'var(--bg-primary)',
+                padding: '20px 30px',
+                borderRadius: '8px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                zIndex: 2,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                border: '1px solid var(--border-color)'
+              }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+                  <TrendingUp size={24} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: '800', fontSize: '1.2rem', color: 'var(--text-primary)' }}>150+</div>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Successful Deployments</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="about-content-wrapper"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div style={{ color: '#4ade80', fontWeight: '700', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>#ABOUT ANGLAP</div>
+              <h2 style={{ fontSize: '3rem', color: 'var(--text-primary)', marginBottom: '24px', fontWeight: '800', lineHeight: '1.1' }}>Who We Are</h2>
+              <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '32px' }}>
+                At Anglap Infotech, we create Winning Opportunities For All. We are an AI-ingrained business consultancy that bridges the gap between theoretical innovation and practical economic reality. 
+                <br /><br />
+                We help organizations innovate, grow, and remain competitive in a changing digital world. Our mission is to connect business goals with tech solutions through expert consulting, custom product engineering, and strategic data governance.
+              </p>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+                <div className="pillar-item">
+                  <h4 style={{ color: 'var(--text-primary)', marginBottom: '8px', fontWeight: '700' }}>Our Mission</h4>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>To turn complex AI into profitable strategies that make economic sense.</p>
+                </div>
+                <div className="pillar-item">
+                  <h4 style={{ color: 'var(--text-primary)', marginBottom: '8px', fontWeight: '700' }}>Our Vision</h4>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>To redefine the agentic foundation of modern global industry.</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -367,59 +456,6 @@ function App() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="section" id="features">
-        <div className="container features-container">
-          <motion.div 
-            className="feature-content"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeUp}>Convergence 3.0: The Agentic Foundation</motion.h2>
-            <motion.p variants={fadeUp}>
-              Software and engineering are evolving. Our integrated platform enables Vibe Coding and agentic insights, providing higher quality and high-performance delivery models.
-            </motion.p>
-            <motion.div variants={fadeUp} className="feature-list">
-              <div className="feature-item">
-                <Check size={20} className="feature-check" />
-                <div>
-                  <h4>Robust Data Taxonomy</h4>
-                  <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Ensure structured, explainable, and compliant systems built on trustworthy models.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <Check size={20} className="feature-check" />
-                <div>
-                  <h4>Sales & Software 3.0 Harmonization</h4>
-                  <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Drive sales effectiveness through financial alignment and customer journey optimization.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <Check size={20} className="feature-check" />
-                <div>
-                  <h4>Proactive Predictive Intelligence</h4>
-                  <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>From reactive fixes to strategic gains using agentic foresight and smart analytics.</p>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div variants={fadeUp}>
-              <button className="btn btn-primary" style={{ marginTop: '32px' }}>Discover the Foundation</button>
-            </motion.div>
-          </motion.div>
-          <motion.div 
-            className="feature-img-wrapper"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data Analytics Visualization" />
           </motion.div>
         </div>
       </section>
@@ -586,8 +622,8 @@ function App() {
         </div>
       </section>
 
-      {/* About Us / Contact Section */}
-      <section className="section" id="about">
+      {/* Contact Us Section */}
+      <section className="section" id="contact">
         <div className="container">
           <div className="features-container">
             <motion.div 
@@ -677,11 +713,9 @@ function App() {
                   onChange={(e) => setContactForm({...contactForm, service: e.target.value})}
                   required
                 >
-                  <option value="">Select Service Interest</option>
-                  <option value="CRM Strategy">CRM Strategy</option>
-                  <option value="AI Transformation">AI Transformation</option>
-                  <option value="Data Engineering">Data Engineering</option>
-                  <option value="Digital Strategy">Digital Strategy</option>
+                  <option value="CRM Strategy & Implementation">CRM Strategy & Implementation</option>
+                  <option value="AI Transformation">AI Center of Excellence</option>
+                  <option value="Enterprise Planning">Enterprise Planning</option>
                 </select>
                 <textarea 
                   placeholder="How can we help you?" 
@@ -717,11 +751,10 @@ function App() {
             <div className="footer-col">
               <h4>Solutions</h4>
               <ul>
-                <li><a href="#">Data Engineering & Analytics</a></li>
+                <li><a href="#/crm-strategy">CRM Strategy & Implementation</a></li>
                 <li><a href="#">AI Center of Excellence</a></li>
                 <li><a href="#">Enterprise Planning</a></li>
-                <li><a href="#">Digital Transformation</a></li>
-                <li><a href="#">CRM Solutions</a></li>
+                <li><a href="#">AI Solutions</a></li>
               </ul>
             </div>
             <div className="footer-col">
