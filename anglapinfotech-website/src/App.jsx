@@ -198,7 +198,6 @@ function App() {
         <div className="container nav-container">
           <div className="logo-container">
             <img src={theme === 'light' ? "/logo.png" : "/logo-night.png"} alt="Anglap Infotech Logo" className="logo-img" />
-            <span className="logo-text">Anglap Infotech</span>
           </div>
           
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
@@ -714,7 +713,6 @@ function App() {
             <div className="footer-brand">
               <div className="logo-container">
                 <img src={theme === 'light' ? "/logo.png" : "/logo-night.png"} alt="Anglap Infotech Logo" className="logo-img" />
-                <span className="logo-text">Anglap Infotech</span>
               </div>
               <p>Empowering global enterprises with AI-ingrained innovations, leading the digital and business transformation journey.</p>
             </div>
