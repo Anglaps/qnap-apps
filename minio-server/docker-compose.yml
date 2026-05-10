@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: lumina-minio
+    restart: unless-stopped
+    ports:
+      - "9000:9000" # S3 API Port (Lumina App connects here)
+      - "9001:9001" # Web Console Port (Admin dashboard)
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - /share/Container/minio/data:/data
+    command: server /data --console-address ":9001"
